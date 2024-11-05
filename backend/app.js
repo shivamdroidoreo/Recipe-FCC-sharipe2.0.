@@ -6,18 +6,16 @@ const bcrypt = require("bcrypt"); // For password hashing
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-
-// Middleware setup
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-
 app.use(
     cors({
       origin: "http://localhost:3000",  // Ensure this matches your frontend URL
       credentials: true
     })
 );
+
+// Middleware setup
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Check if the server is running
 app.get("/", (req, res) => {

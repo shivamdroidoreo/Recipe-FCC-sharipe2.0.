@@ -134,6 +134,7 @@ function Register() {
           type="email" 
           placeholder="Email" 
           value={email}
+          className='text-black'
           onChange={(e) => setEmail(e.target.value)}
           required 
         />
@@ -141,12 +142,14 @@ function Register() {
           type="password" 
           placeholder="Password" 
           value={password}
+          className='text-black'
           onChange={(e) => setPassword(e.target.value)}
           required 
         />
         <input 
           type="password" 
           placeholder="Confirm Password" 
+          className='text-black'
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required 
