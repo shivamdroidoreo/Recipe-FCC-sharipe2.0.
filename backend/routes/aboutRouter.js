@@ -48,5 +48,22 @@ router.get('/', async (req, res) => {
       res.status(500).json({ error: 'Error fetching team members' });
     }
   });
+
+  router.get('/testimonials', async (req, res) => {
+    try {
+      const testimonialsCollection = req.db.collection('testimonials');
+      const testimonials = await testimonialsCollection.find({}).toArray();
+      if (testimonials.length === 0) {
+        return res.status(404).json({ error: 'No testimonials found' });
+      }
+      res.json(testimonials);
+    } catch (error) {
+      console.error('Error fetching testimonials:', error.message); // Log the specific error message
+      res.status(500).json({ error: 'Error fetching testimonials' });
+    }
+  });
+  
 // Export the router
 module.exports = router;
+
+//aboutRouter.js
